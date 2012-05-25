@@ -32,7 +32,7 @@ static int no_cpufreq_access;
 
 static struct cpufreq_frequency_table default_freq_table[] = {
 //	{ .index = 1100000, .frequency =   24000 },
-{ .index = 1200000, .frequency =  204000 },
+        { .index = 1200000, .frequency =  204000 },
 	{ .index = 1200000, .frequency =  300000 },
 	{ .index = 1200000, .frequency =  408000 },
 	{ .index = 1200000, .frequency =  600000 },
@@ -157,7 +157,7 @@ static void board_do_update_cpufreq_table(struct cpufreq_frequency_table *table)
 		    (limit_index_816 < 0 ||
 		    (limit_index_816 >= 0 && table[limit_index_816].frequency < table[i].frequency)))
 			limit_index_816 = i;
-		if (table[i].frequency <= 1008000 &&
+		if (table[i].frequency <= 1200000 &&
 		    (limit_index_1008 < 0 ||
 		    (limit_index_1008 >= 0 && table[limit_index_1008].frequency < table[i].frequency))) {
 			limit_index_1008 = i;

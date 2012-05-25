@@ -7,6 +7,6 @@ PATH=$BASE_DIR/tool:$PATH
 
 echo "already[enter]"
 read enter
-$TOOL/img-manager.py write boot boot.img.new
-$TOOL/img-manager.py write kernel kernel.img
-$TOOL/rkflashtool b
+sudo $TOOL/img-manager.py write boot boot.img
+sudo $TOOL/img-manager.py write kernel kernel.img
+sudo $TOOL/rkflashtool b
