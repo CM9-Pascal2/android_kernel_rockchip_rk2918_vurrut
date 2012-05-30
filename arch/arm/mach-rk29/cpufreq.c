@@ -42,6 +42,7 @@ static struct cpufreq_frequency_table default_freq_table[] = {
 	{ .index = 1300000, .frequency = 1104000 },
 	{ .index = 1400000, .frequency = 1176000 },
 	{ .index = 1400000, .frequency = 1200000 },
+        { .index = 1400000, .frequency = 1300000 },
 	{ .frequency = CPUFREQ_TABLE_END },
 };
 static struct cpufreq_frequency_table *freq_table = default_freq_table;
@@ -205,6 +206,7 @@ module_param(limit_gpu_low_rate, ulong, 0644);
 #define TEMP_COEFF_816  -78
 #define TEMP_COEFF_1008 325
 #define TEMP_COEFF_1200 1300
+#define TEMP_COEFF_1300 1300
 #define WORK_DELAY      HZ
 static void rk29_cpufreq_limit_by_temp(struct cpufreq_policy *policy, unsigned int relation, int *index)
 {
@@ -256,8 +258,10 @@ static void rk29_cpufreq_limit_by_temp(struct cpufreq_policy *policy, unsigned i
 		c = TEMP_COEFF_816;
 	else if (cur <= 1008 * 1000)
 		c = TEMP_COEFF_1008;
-	else
+	else if (cur <= 1200 * 1000)
 		c = TEMP_COEFF_1200;
+	else
+		c = TEMP_COEFF_1300;
 	temp += c * ms;
 
 	if (temp < 0)

@@ -35,6 +35,7 @@
 	{ .index = 1300000, .frequency = 1104000 },\
 	{ .index = 1400000, .frequency = 1176000 },\
 	{ .index = 1400000, .frequency = 1200000 },\
+        { .index = 1400000, .frequency = 1300000 },\
 	{ .frequency = CPUFREQ_TABLE_END },\
 }
 /***************************************************
