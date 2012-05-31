@@ -280,7 +280,7 @@ static void rk29_cpufreq_limit_by_temp(struct cpufreq_policy *policy, unsigned i
 		 temp >= overheat_temp_1200 && temp < overheat_temp) {
 		target_index = limit_index_1008;
 		overheat = true;
-	} else if (target_freq > 1008000 && (limit_vpu_enabled || (limit_gpu_enabled && limit_gpu_high))) {
+	} else if (target_freq > 1300000 && (limit_vpu_enabled || (limit_gpu_enabled && limit_gpu_high))) {
 		target_index = limit_index_1008;
 	}
 
