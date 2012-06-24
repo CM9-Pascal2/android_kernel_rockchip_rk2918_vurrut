@@ -42,7 +42,7 @@ static struct cpufreq_frequency_table default_freq_table[] = {
 	{ .index = 1300000, .frequency = 1104000 },
 	{ .index = 1400000, .frequency = 1176000 },
 	{ .index = 1400000, .frequency = 1200000 },
-        { .index = 1400000, .frequency = 1300000 },
+        { .index = 1450000, .frequency = 1300000 },
 	{ .frequency = CPUFREQ_TABLE_END },
 };
 static struct cpufreq_frequency_table *freq_table = default_freq_table;
@@ -74,7 +74,7 @@ module_param(limit_temp, int, 0444);
 
 #define LIMIT_AVG_VOLTAGE	1200000 /* vU */
 #else /* !CONFIG_RK29_CPU_FREQ_LIMIT_BY_TEMP */
-#define LIMIT_AVG_VOLTAGE	1400000 /* vU */
+#define LIMIT_AVG_VOLTAGE	1450000 /* vU */
 #endif /* CONFIG_RK29_CPU_FREQ_LIMIT_BY_TEMP */
 
 enum {
@@ -158,7 +158,7 @@ static void board_do_update_cpufreq_table(struct cpufreq_frequency_table *table)
 		    (limit_index_816 < 0 ||
 		    (limit_index_816 >= 0 && table[limit_index_816].frequency < table[i].frequency)))
 			limit_index_816 = i;
-		if (table[i].frequency <= 1200000 &&
+		if (table[i].frequency <= 1300000 &&
 		    (limit_index_1008 < 0 ||
 		    (limit_index_1008 >= 0 && table[limit_index_1008].frequency < table[i].frequency))) {
 			limit_index_1008 = i;
